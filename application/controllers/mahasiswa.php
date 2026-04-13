@@ -51,6 +51,36 @@ class Mahasiswa extends CI_Controller {
         redirect('mahasiswa');
     }
 
+// ========================
+// FORM EDIT
+// ========================
+public function edit($id)
+{
+    $data['mahasiswa'] = $this->Mahasiswa_model->get_by_id($id);
+
+    $this->load->view('templates/header');
+    $this->load->view('templates/sidebar');
+    $this->load->view('templates/topbar');
+    $this->load->view('mahasiswa/edit', $data);
+    $this->load->view('templates/footer');
+}
+
+// ========================
+// UPDATE
+// ========================
+public function update($id)
+{
+    $data = [
+        'nim'     => $this->input->post('nim'),
+        'nama'    => $this->input->post('nama'),
+        'jurusan' => $this->input->post('jurusan'),
+        'alamat'  => $this->input->post('alamat')
+    ];
+
+    $this->Mahasiswa_model->update($id, $data);
+    redirect('mahasiswa');
+}
+
     // ========================
     // HAPUS
     // ========================

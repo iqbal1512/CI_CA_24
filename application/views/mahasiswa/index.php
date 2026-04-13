@@ -27,6 +27,9 @@
         <a href="<?= site_url('mahasiswa/hapus/'.$m->id); ?>" 
            onclick="return confirm('Yakin?')" 
            class="btn btn-danger btn-sm">Hapus</a>
+
+        <a href="<?= site_url('mahasiswa/edit/'.$m->id); ?>" 
+            class="btn btn-warning btn-sm">Edit</a>
     </td>
 </tr>
 <?php endforeach; ?>
